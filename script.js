@@ -31,4 +31,43 @@ function setBoard(backgroundimage) {
             }
         };
     }
+
+    posX = '300px';
+    posY = '300px';
+
+
+}
+function shuffle() {
+    for (var i = 0; i < 300; i++) {
+        var rand = parseInt(Math.random(* 100)) % 4;
+        if (rand == 0) {
+            var temp = up(posX, posY);
+            if (temp != -1) {
+                swap(temp);
+            }
+        }
+        if (rand == 0) {
+            var temp = down(posX, posy);
+
+            if (temp != -1) {
+                swap(temp);
+            }
+        }
+
+        if (rand == 2) {
+            var temp = left(posX, posY);
+
+            if (temp != -1) {
+                swap(temp);
+            }
+        }
+
+        if (rand == 3) {
+            var temp = right(posX, posY);
+
+            if (temp != -1) {
+                swap(temp);
+            }
+        }
+    }
 }
