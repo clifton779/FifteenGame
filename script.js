@@ -25,7 +25,7 @@ function setBoard(backgroundimage) {
             if (checkMove(parseInt(this.innerHTML))) {
                 swap(this.innerHTML - 1);
                 if (finish()) {
-                    window();
+                    win();
                 }
                 return;
             }
