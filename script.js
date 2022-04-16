@@ -37,11 +37,9 @@ function setBoard(backgroundimage) {
 
 
 }
-
-
 function shuffle() {
     for (var i = 0; i < 300; i++) {
-        var rand = parseInt(Math.random(* 100)) % 4;
+        var rand = parseInt(Math.random() * 100) % 4;
         if (rand == 0) {
             var temp = up(posX, posY);
             if (temp != -1) {
