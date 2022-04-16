@@ -71,3 +71,86 @@ function shuffle() {
         }
     }
 }
+function checkMove(position) {
+    if (left(posX, posY) == (position - 1)) {
+        return true;
+    }
+    if (down(posX, posY) == (position - 1)) {
+        return true;
+    }
+    if (up(posX, posY) == (position - 1)) {
+        return true;
+    }
+    if (right(posX, posY) == (position - 1)) {
+        return true;
+    }
+}
+function left(x, y) {
+    var cordX = parseInt(x);
+    var cordY = parseInt(y);
+    if (cordX > 0) {
+        for (var i = 0; i < tiles.length; i++) {
+
+            if (parseInt(tiles[i].style.left) + 100 == cordX && parseInt(tiles[i].style.top) == cordY) {
+                return i;
+            }
+        }
+    }
+    else {
+        return -1;
+    }
+}
+function right(x, y) {
+    var cordX = parseInt(x);
+    var cordY = parseInt(y);
+    if (cordX < 300) {
+        for (var i = 0; i < tiles.length; i++) {
+            if (parseInt(tiles[i].style.left) - 100 == cordX && parseInt(tiles[i].style.top) == cordY) {
+                return i;
+            }
+        }
+    }
+    else {
+        return -1;
+    }
+}
+
+function up(x, y) {
+    var cordX = parseInt(x);
+    var cordY = parseInt(y);
+    if (cordY > 0) {
+        for (var i = 0; i < tiles.length; i++) {
+            if (parseInt(tiles[i].style.top) + 100 == cordY && parseInt(tiles[i].style.left) == cordX) {
+                return i;
+            }
+        }
+    }
+    else {
+        return -1;
+    }
+}
+
+function down(x, y) {
+    var cordX = parseInt(x);
+    var cordY = parseInt(y);
+    if (cordY < 300) {
+        for (var i = 0; i < tiles.length; i++) {
+
+            if (parseInt(tiles[i].style.top) - 100 == cordY && parseInt(tiles[i].style.left) == cordX) {
+                return i;
+            }
+        }
+    }
+    else {
+        return -1;
+    }
+}
+
+function swap(position) {
+    var temp = tiles[position].style.top;
+    tiles[position].style.top = posY;
+    posY = temp;
+    temp = tiles[position].style.left;
+    tiles[position].style.left = posX;
+    posX = temp;
+}
