@@ -2,6 +2,20 @@ var tiles;
 var posY;
 var posX;
 
+function getImage() {
+    let pic1 = document.getElementById("pic1");
+    pic1.addEventListener("click", setBoard("background1.png"));
+
+    let pic2 = document.getElementById("pic2");
+    pic2.addEventListener("click", setBoard("background1.png"));
+
+    let pic3 = document.getElementById("pic3");
+    pic3.addEventListener("click", setBoard("background1.png"));
+
+    let pic4 = document.getElementById("pic4");
+    pic4.addEventListener("click", setBoard("background1.png"));
+}
+
 function setBoard(backgroundimage) {
     var board = document.getElementById('board');
     tiles = board.getElementsByClassName('tile');
