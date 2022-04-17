@@ -8,8 +8,19 @@
     }
 }
 
+@keyframes pulse {
+
+    0%,
+    100% {
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        transform: scale(1.13);
+    }
+}
+
 body {
-    background: url("puzzle.png") left repeat-y, url("puzzle.png") right repeat-y;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12pt;
     background-color: lightgray;
@@ -102,6 +113,31 @@ table {
     background: url(background1.png);
     /*Image should be 480x480 px*/
     cursor: pointer;
+    transition: transform 1s;
+}
+
+.tile1:hover,
+.tile2:hover,
+.tile3:hover,
+.tile4:hover,
+.tile5:hover,
+.tile6:hover,
+.tile7:hover,
+.tile8:hover,
+.tile9:hover,
+.tile10:hover,
+.tile11:hover,
+.tile12:hover,
+.tile13:hover,
+.tile14:hover,
+.tile15:hover {
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    display: table-cell;
+    border: 1px solid red;
+    color: red;
+    animation: pulse 2s infinite;
 }
 
 .tile1 {

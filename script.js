@@ -235,9 +235,6 @@ function startTimer() {
         stoptime = false;
         timerCycle();
     }
-
-
-
 }
 
 function timerCycle() {
