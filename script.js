@@ -258,6 +258,10 @@ function increment() {
 
 // starts timer upon any background button click
 function startTimer() {
+    hr = 00;
+    min = 01;
+    sec = 30;
+    timer.innerHTML = hr + ':' + min + ':' + sec;
     if (stoptime == true) {
         stoptime = false;
         timerCycle();
@@ -286,10 +290,11 @@ function timerCycle() {
             }
             else {
                 min = min - 1;
+                sec = 60;
             }
         }
-        if (sec != 00) {
-            sec = '' + sec;
+        if (sec < 10) {
+            sec = '0' + sec;
         }
         if (min < 10 || min == 2) {
             min = '0' + min;
@@ -299,7 +304,7 @@ function timerCycle() {
         }
         timer.innerHTML = hr + ':' + min + ':' + sec;
 
-        setTimeout("timerCycle()", 2000);
+        setTimeout("timerCycle()", 1000);
     }
 }
 
@@ -307,7 +312,7 @@ function timerCycle() {
 // resets page if timer reaches 0:00:00
 function reset() {
     let temp = 0
-    if (hr == 00 && min == 00 && sec == 01) {
+    if (hr == 00 && min == 00 && sec == 00) {
         while (temp == 0) {
             temp = temp + 1;
             if (temp == 1) {
@@ -318,6 +323,7 @@ function reset() {
         }
     }
 }
+
 
 
 // loads functions

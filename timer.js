@@ -35,10 +35,11 @@ function timerCycle() {
       }
       else {
         min = min - 1;
+        sec = 60;
       }
     }
-    if (sec != 00) {
-      sec = '' + sec;
+    if (sec < 10) {
+      sec = '0' + sec;
     }
     if (min < 10 || min == 2) {
       min = '0' + min;
