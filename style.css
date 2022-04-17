@@ -1,278 +1,150 @@
-/*
-
-Homework and Project writeup shared style sheet
-*/
-
-a img {
-    border: none;
+@keyframes headder {
+	from {color: blue;}
+	to {color: red;}
 }
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
+  
+body{
+	background: url("puzzle.png") left repeat-y, url("puzzle.png") right repeat-y;
+	font-family: Arial, Helvetica, sans-serif;
     font-size: 12pt;
     background-color: lightgray;
     color: black;
 }
-
-.boxed {
-    border: 1px solid black;
+  
+header{
+	text-align: center;
+	color: red;
+	font-size:x-large;
+	animation-name: headder;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-delay: 2s;
+}
+  
+#textLabels{
+	display: flex;
+	justify-content: center;
+}
+  
+#timer{
+	font-size: 50px;
+	display: flex;
+	justify-content: center;
 }
 
-code,
-pre,
-samp,
-tt {
-    font-family: "Courier New", monospace;
-    font-size: 95%;
+#buttontimer{
+	display: flex;
+	justify-content: center;
+}
+  
+label{
+	margin-left: 20px;
+}
+  
+p{
+	text-align: center;
 }
 
-.correction {
-    background-color: yellow;
+table{
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+}
+  
+.tile{
+	width: 50px;
+	height: 50px;
+	border: 1px solid black;
+	text-align: center;
+	cursor: pointer;
+}
+  
+#table1{
+	display: table;
+	width: auto;
+	margin: auto;
+	padding: 10px;
+    border-spacing: 3px;
+}
+  
+#row1, #row2, #row3, #row4{
+	display: table-row;
+}
+  
+.tile1, .tile2, .tile3, .tile4, .tile5, .tile6, .tile7, .tile8, .tile9, .tile10, .tile11, .tile12, .tile13, .tile14, .tile15{
+	width: 120px;
+	height: 120px;
+	display: table-cell;
+	border: 1px solid black;
+	background: url(background1.png); /*Image should be 480x480 px*/
+	cursor: pointer;
+}
+  
+.tile1{
+	background-position: 0% -1%;
+}
+.tile2{
+	background-position: 33% 0%;
+}
+.tile3{
+	background-position: 66% 0%;
+}
+.tile4{
+	background-position: 100% 0%;
+}
+.tile5{
+	background-position: 0% 33%;
+}
+.tile6{
+	background-position: 33% 33%;
+}
+.tile7{
+	background-position: 66% 33%;
+}
+.tile8{
+	background-position: 99% 33%;
+}
+.tile9{
+	background-position: 0% 66%;
+}
+.tile10{
+	background-position: 33% 66%;
+}
+.tile11{
+	background-position: 66% 66%;
+}
+.tile12{
+	background-position: 99% 66%;
+}
+.tile13{
+	background-position: 0% 100%;
+}
+.tile14{
+	background-position: 33% 99%;
+}
+.tile15{
+	background-position: 66% 99%;
 }
 
-.credit {
-    font-style: italic;
-    margin-bottom: 1.5em;
-    text-align: center;
+#options{
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+#pic1, #pic2, #pic3{
+	margin-right: 5px;
 }
 
-div#appearancedetails p.clear {
-    clear: right;
+#winner{
+	font-size: 50px;
+	text-align: center;
+	animation-name: winner;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
 }
 
-div.sample {
-    float: left;
-    margin: 12px;
-}
-
-.grades {
-    padding-right: 50px;
-}
-
-h1 {
-    font-size: 16pt;
-    text-align: center;
-    line-height: 1.1em;
-    padding-bottom: 10px;
-}
-
-h2 {
-    font-size: 14pt;
-}
-
-h3 {
-    font-family: "Arial", sans-serif;
-    font-size: 10pt;
-    margin: 0px;
-    text-align: center;
-}
-
-h4 {
-    font-family: "Arial", sans-serif;
-    font-size: 11pt;
-    margin: 0px;
-    margin-top: 1em;
-    padding: 0px;
-}
-
-h1,
-h2 {
-    font-family: "Arial", sans-serif;
-    margin-top: 18px;
-    margin-bottom: 0px;
-    clear: both;
-}
-
-.highlighted {
-    background-color: #FFEEEE;
-    /*
-	border: 2px dashed red;
-	padding-bottom: 2px;
-	padding-top: 2px;
-	*/
-}
-
-hr.outputseparator {
-    color: black;
-    background-color: black;
-    height: 15px;
-    margin: 0px;
-}
-
-.vr {
-    height: 750px;
-    width: 10px;
-    background-color: black;
-}
-
-img.sample {
-    /*
-	float: right;
-	margin-left: 10px;
-	*/
-    text-align: center;
-}
-
-img.right {
-    float: right;
-    margin-left: 10px;
-}
-
-li ul,
-li {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    text-align: justify;
-}
-
-li.horizontal {
-    display: inline;
-    margin-right: 3em;
-}
-
-.longcode {
-    font-size: smaller;
-}
-
-.outputimagelist {
-    list-style-type: none;
-    padding-left: 0em;
-}
-
-.outputimagelist li,
-.outputimagelist li img {
-    margin-bottom: 0px;
-    margin-top: 0px;
-    padding-bottom: 0px;
-    padding-top: 0px;
-    text-align: center;
-    vertical-align: bottom;
-}
-
-p {
-    margin-bottom: 8px;
-    margin-top: 8px;
-    page-break-inside: avoid;
-    text-align: justify;
-}
-
-p.acknowledgement {
-    font-style: italic;
-    margin-top: 0px;
-    margin-bottom: 16px;
-    text-align: center;
-}
-
-.expectedoutput {
-    text-align: center;
-    line-height: 0em;
-    padding: 0px;
-    margin: 0px;
-}
-
-.expectedoutput img {
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-    vertical-align: top;
-}
-
-pre,
-code,
-samp {
-    font-family: "Courier New", monospace;
-}
-
-pre em {
-    background-color: #FFFFAA;
-}
-
-pre em,
-code em {
-    color: #660000;
-    font-style: normal;
-    font-weight: bold;
-}
-
-.rightfigure {
-    float: right;
-    margin-left: 1em;
-}
-
-.w3c {
-    float: right;
-    margin-left: 1em;
-}
-
-.subheading {
-    font-size: smaller;
-}
-
-ul {
-    margin-top: 9px;
-}
-
-ul p {
-    margin-top: 3px;
-    margin-bottom: 3px;
-}
-
-.split {
-    text-align: center;
-}
-
-.split li {
-    display: inline;
-}
-
-.split li img {
-    max-width: 45%;
-}
-
-.split li .outputseparator {
-    display: inline;
-    height: 100px;
-    vertical-align: middle;
-    width: 15px;
-}
-
-.subheading {
-    font-size: 80%;
-}
-
-.syntaxtemplate {
-    color: #660000;
-    font-family: "Arial", sans-serif;
-    font-style: italic;
-}
-
-.paramtable {
-    border-collapse: collapse;
-    caption-side: top;
-    margin: 0.5em auto 0.5em auto;
-    min-width: 40%;
-}
-
-.paramtable caption {
-    text-align: center;
-    margin: 0em auto;
-}
-
-.paramtable td,
-.paramtable th {
-    border: 1px solid gray;
-    padding: 0.25em;
-}
-
-.url {
-    font-family: Garamond, serif;
-    color: #000066;
-}
-
-pre {
-    background-color: #F8F8FF;
-    border: 1px dashed blue;
-    padding: 0.2em 0.5em;
+@keyframes winner {
+	from {color: orangered;}
+	to {color: yellow;}
 }
