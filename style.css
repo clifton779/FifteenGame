@@ -213,6 +213,7 @@ table {
 }
 
 #winner {
+    background: url(winner.png);
     font-size: 50px;
     text-align: center;
     animation-name: winner;
