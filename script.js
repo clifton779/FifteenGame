@@ -1,3 +1,4 @@
+// initialize variables
 let moves = 0;
 let table;
 let rows;
@@ -6,6 +7,16 @@ let tileMoves;
 let boardArr;
 let bG;
 
+// timer
+const timer = document.getElementById('timer');
+
+let hr = 00;
+let min = 01;
+let sec = 30;
+let stoptime = true;
+
+
+// background buttons, also starts game
 function buttonStart() {
     let picture1 = document.getElementById("pic1");
     picture1.addEventListener("click", gameStart, false);
@@ -22,12 +33,14 @@ function buttonStart() {
     document.getElementById("winner").innerHTML = " ";
     tileMoves = document.getElementById("moves");
     table = document.getElementById("table");
-    rows = 4;
-    columns = 4;
+    rows = 4; // 4x4 board
+    columns = 4; // 4x4 board
     checkers = 0;
     gameStart();
 }
 
+
+// starts game by building out arrays and filling them with the images
 function gameStart() {
     let numArr = new Array();
     let numUsed;
@@ -39,15 +52,18 @@ function gameStart() {
     tileMoves.innerHTML = moves;
     boardArr = new Array(rows);
 
+    // columns
     for (let i = 0; i < rows; i++) {
         boardArr[i] = new Array(columns);
     }
 
+    // moves counted
     numUsed = new Array(rows * columns);
     for (let i = 0; i < rows * columns; i++) {
         numUsed[i] = 0;
     }
 
+    // randomizes board
     for (let i = 0; i < rows * columns; i++) {
         randd = Math.floor(Math.random() * rows * columns);
         if (numUsed[randd] == 0) {
@@ -58,6 +74,7 @@ function gameStart() {
         }
     }
 
+    // initializes board
     co = 0;
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < columns; j++) {
@@ -67,6 +84,7 @@ function gameStart() {
         }
     }
 
+    // background 1 button
     let picture1 = document.getElementById("pic1");
     picture1.addEventListener("click", function () {
         bG = 'style = \"background-image: url(background1.png)\"';
@@ -74,6 +92,7 @@ function gameStart() {
         startTimer();
     });
 
+    // background 2 button
     let picture2 = document.getElementById("pic2");
     picture2.addEventListener("click", function () {
         bG = 'style = \"background-image: url(background2.png)\"';
@@ -81,6 +100,7 @@ function gameStart() {
         startTimer();
     });
 
+    // background 3 button
     let picture3 = document.getElementById("pic3");
     picture3.addEventListener("click", function () {
         bG = 'style = \"background-image: url(background3.png)\"';
@@ -88,6 +108,7 @@ function gameStart() {
         startTimer();
     });
 
+    // background 4 button
     let picture4 = document.getElementById("pic4");
     picture4.addEventListener("click", function () {
         bG = 'style = \"background-image: url(background4.png)\"';
@@ -96,6 +117,8 @@ function gameStart() {
     });
 }
 
+
+// checks if tile is movable, alert if not
 function movingTile(rRow, cColumn) {
     if (movableCheck(rRow, cColumn, "up") ||
         movableCheck(rRow, cColumn, "down") ||
@@ -106,6 +129,7 @@ function movingTile(rRow, cColumn) {
         alert("Nope! You can't move this");
     }
 
+    // checks if you completed the board, changes image to winner
     if (winnerCheck()) {
         alert("You Won! in: " + moves + " moves.");
         document.getElementById("winner").innerHTML = "Winner Winner!";
@@ -113,6 +137,7 @@ function movingTile(rRow, cColumn) {
     }
 }
 
+// board function, makes each tile movable
 function board(bG) {
     let result = "";
 
@@ -174,6 +199,8 @@ function board(bG) {
     table.innerHTML = result;
 }
 
+
+// checks if each tile is movable
 function movableCheck(coordRow, coordCol, location) {
     setRow = 0;
     setCol = 0;
@@ -201,6 +228,8 @@ function movableCheck(coordRow, coordCol, location) {
     return false;
 }
 
+
+// winner check function
 function winnerCheck() {
     var co = 1;
     for (let i = 0; i < rows; i++) {
@@ -217,19 +246,17 @@ function winnerCheck() {
     return true;
 }
 
+
+// moves tile by 1 increment
 function increment() {
     moves++;
     if (tileMoves) {
         tileMoves.innerHTML = moves;
     }
 }
-const timer = document.getElementById('timer');
 
-let hr = 00;
-let min = 01;
-let sec = 30;
-let stoptime = true;
 
+// starts timer upon any background button click
 function startTimer() {
     if (stoptime == true) {
         stoptime = false;
@@ -237,6 +264,8 @@ function startTimer() {
     }
 }
 
+
+// counts down timer
 function timerCycle() {
     if (stoptime == false) {
         sec = parseInt(sec);
@@ -268,14 +297,14 @@ function timerCycle() {
         if (hr < 10 || hr == 0) {
             hr = '0' + hr;
         }
-
-
         timer.innerHTML = hr + ':' + min + ':' + sec;
 
         setTimeout("timerCycle()", 2000);
     }
 }
 
+
+// resets page if timer reaches 0:00:00
 function reset() {
     let temp = 0
     if (hr == 00 && min == 00 && sec == 01) {
@@ -289,5 +318,8 @@ function reset() {
         }
     }
 }
+
+
+// loads functions
 window.addEventListener("load", buttonStart, false);
 
