@@ -37,6 +37,10 @@ header {
     animation-delay: 2s;
 }
 
+nav {
+    text-align: center;
+}
+
 #textLabels {
     display: flex;
     justify-content: center;
@@ -229,4 +233,24 @@ table {
     to {
         color: yellow;
     }
+}
+
+/* about page */
+#team-header {
+    font-size: 45pt;
+    text-align: center;
+    font-weight: 200;
+}
+
+#leader-header,
+#members-header {
+    font-size: 30pt
+}
+
+dl,
+dt,
+dd,
+#puzzle-header,
+#puzzle-button {
+    text-align: center;
 }
